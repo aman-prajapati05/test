@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class='card bg-white   md:w-[32rem] w-[19rem] md:h-96 h-[34rem] rounded-lg shadow mb-4'>
+        <div class='flex md:justify-between justify-center items-center manrope p-10 flex-wrap'>
+             <div class='text-[#858FAD]  text-sm font-semibold '>{`${Pricing[pageviews].pageviews} PAGEVIEWS`}</div>
+             <div class='md:flex items-center hidden '>
+             <div class='text-[#293356] text-4xl text font-extrabold '> {`$${getPrice()}`}</div>
+             <div class='text-[#858FAD]  text-sm font-semibold'>{`/ ${isYearly?`year`: `month` }`}</div>
+             </div>
+        </div>
+        <div class='flex justify-center'>
+         <input type="range" 
+         min="0"
+         max="4"
+         value={pageviews}
+         
+         />
+        </div>
+
+        <div class='flex items-center justify-center mt-8 gap-2 md:hidden'>
+             <div class='text-[#293356] text text-4xl font-bold '>{`$${getPrice()}`}</div>
+             <div class='text-[#858FAD]  text-sm font-semibold'>{`/ ${isYearly?`year`:`month`}`}</div>
+         </div>
+        <div class='flex justify-evenly mt-11 mb-10 md:ml-20 md:mr-14  manrope items-center'>
+         <div class='text-[#858FAD]  text-xs font-semibold'>
+             Monthly Billing
+         </div>
+         
+        <label class="switch w-5 h-5">
+         <input 
+         type='checkbox'
+         checked={isYearly}
+         onChange={handleBillingChange}
+         class='w-5 h-5'
+         />
+         <span class="slider round "></span>
+         </label>
+
+         
+         <div class='text-[#858FAD]  text-xs font-semibold'>Yearly Billing </div>
+         <div class='text-xs font-bold bg-[#FEECE7] text-[#FF8C66] hidden md:block rounded-xl px-1'>25% discount</div>
+         <div class='text-xs font-bold bg-[#FEECE7] text-[#FF8C66] md:hidden rounded-xl px-1'>-25%</div>
+        </div>
+
+        
+
+        <div class='w-full h-[2px] bg-black opacity-5'></div>
+
+        <div class='flex md:justify-between  justify-center items-center h-56 md:h-36 manrope mx-9 flex-wrap '>
+         <div class='flex flex-col gap-2'>
+             <div class='flex  items-center'><img src={check} class=' ' alt="" /><div class='manrope text-[#858FAD] text-sm font-semibold ml-5'>Unlimited websites</div></div>
+             <div class='flex  items-center'><img src={check} class=' ' alt="" /><div class='manrope text-[#858FAD] text-sm font-semibold ml-5'>100% data ownership</div></div>
+             <div class='flex  items-center  '><img src={check} class=' ' alt="" /><div class='manrope text-[#858FAD] text-sm font-semibold ml-5'>Email reports</div></div>
+         </div>
+         <div>
+             <button class='bg-[#293356] text-[#858FAD] text  py-3 rounded-3xl w-44 text-sm font-bold '>
+                 Start my trial
+             </button>
+         </div>
+        </div>
+     </div>
+     
+</body>
+</html>
